@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Directinput()
     {
         if (Input.GetKey(KeyCode.UpArrow) == true)
         {
@@ -37,18 +37,27 @@ public class PlayerController : MonoBehaviour
 
 
     }
+  
+    
     void Update()
-    {
-        float xInput = Input.GetAxis("Horizontla");
-
+    {   //수평축과 수직축의 입력값을 감지해서 저장
+        float xInput = Input.GetAxis("Horizontal");
+        //키보드 'A'.<- :음의 방향 : -1.0f
         float ZInput = Input.GetAxis("Vertical");
 
+        float xSpeed = xInput * speed;
+
+        float zSpeed = ZInput * speed;
+
+        Vector3 newVelocity = new Vector3(xSpeed, 0, zSpeed);
+
+        PlayerRigidbody.velocity = newVelocity;
 
 
     }
 
 
-    void Die()
+    public void Die()
     {
         my.SetActive(false);
     }
