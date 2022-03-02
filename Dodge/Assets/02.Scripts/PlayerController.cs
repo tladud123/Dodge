@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody PlayerRigidbody;
     public float speed = 8f;
 
-    public GameObject my;
+    //public GameObject my;
     private void Start()
     {
         PlayerRigidbody = GetComponent<Rigidbody>();
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        my.SetActive(false);
+        gameObject.SetActive(false);
 
         //씬에 존재하는 GameManager 타입의
         //오브젝트를 찾아서 가져오기
